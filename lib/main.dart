@@ -13,11 +13,11 @@ void main() async {
   if (kIsWeb) {
     await Firebase.initializeApp(
       options: const FirebaseOptions(
-        apiKey: Options.ApiKey,
-        appId: Options.AppId,
-        messagingSenderId: Options.MessagingSenderId,
-        projectId: Options.ProjectId,
-        storageBucket: Options.StorageBucket,
+        apiKey: Options.apiKey,
+        appId: Options.appId,
+        messagingSenderId: Options.messagingSenderId,
+        projectId: Options.projectId,
+        storageBucket: Options.storageBucket,
       ),
     );
   } else {

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:instagram_clone/core/colors.dart';
 import 'package:instagram_clone/features/auth/presentation/pages/signup.dart';
+import 'package:instagram_clone/features/auth/presentation/widgets/custom_button.dart';
+import 'package:instagram_clone/features/auth/presentation/widgets/custom_input_field.dart';
 // import 'package:flutter_svg/flutter_svg.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -13,8 +15,8 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    TextEditingController username = new TextEditingController();
-    TextEditingController password = new TextEditingController();
+    TextEditingController username = TextEditingController();
+    TextEditingController password = TextEditingController();
     @override
     void dispose() {
       super.dispose();
@@ -38,15 +40,22 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Container(),
                 flex: 2,
               ),
-              _myInputField("User Name", context, false, username),
+              CustomInputField(
+                title: "User Name",
+                controller: username,
+              ),
               const SizedBox(
                 height: 30,
               ),
-              _myInputField("Password", context, true, password),
+              CustomInputField(
+                title: "Password",
+                obscureText: true,
+                controller: password,
+              ),
               const SizedBox(
                 height: 30,
               ),
-              _myButton("Login", () {}),
+              CustomButton(title: "Login", onPressed: () {}),
               Flexible(
                 child: Container(),
                 flex: 2,
@@ -89,50 +98,4 @@ class _LoginScreenState extends State<LoginScreen> {
       ),
     );
   }
-}
-
-Widget _myButton(String title, VoidCallback onPressed) {
-  return GestureDetector(
-    onTap: onPressed,
-    child: Container(
-      alignment: Alignment.center,
-      padding: const EdgeInsets.symmetric(
-        vertical: 10,
-        horizontal: 12,
-      ),
-      width: double.infinity,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(8),
-        color: blueColor,
-      ),
-      child: Text(
-        title,
-        style: const TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ),
-  );
-}
-
-Widget _myInputField(
-  String? title,
-  context,
-  bool obscureText,
-  TextEditingController controller,
-) {
-  OutlineInputBorder border =
-      OutlineInputBorder(borderSide: Divider.createBorderSide(context));
-  return TextField(
-    controller: controller,
-    decoration: InputDecoration(
-      hintText: title,
-      enabledBorder: border,
-      filled: true,
-      border: border,
-      contentPadding: const EdgeInsets.all(8),
-    ),
-    obscureText: obscureText,
-  );
 }
