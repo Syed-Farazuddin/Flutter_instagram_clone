@@ -18,13 +18,13 @@ class _SignupState extends State<Signup> {
   Widget build(BuildContext context) {
     TextEditingController username = TextEditingController();
     TextEditingController email = TextEditingController();
-
     TextEditingController password = TextEditingController();
     @override
     void dispose() {
       super.dispose();
       username.dispose();
       password.dispose();
+      email.dispose();
     }
 
     return Scaffold(
@@ -44,7 +44,36 @@ class _SignupState extends State<Signup> {
                 child: Container(),
                 flex: 2,
               ),
-              SvgPicture.asset("lib/assets/images/ic_instagram.svg"),
+              SvgPicture.asset(
+                "lib/assets/images/ic_instagram.svg",
+                color: primaryColor,
+              ),
+              const SizedBox(
+                height: 50,
+              ),
+              Stack(
+                children: [
+                  CircleAvatar(
+                    radius: 64,
+                    child: Image.network(
+                      "https://media.istockphoto.com/id/1332100919/vector/man-icon-black-icon-person-symbol.jpg?s=612x612&w=0&k=20&c=AVVJkvxQQCuBhawHrUhDRTCeNQ3Jgt0K1tXjJsFy1eg=",
+                    ),
+                  ),
+                  Positioned(
+                    bottom: -10,
+                    left: 80,
+                    child: IconButton(
+                      icon: const Icon(
+                        Icons.add_a_photo,
+                      ),
+                      onPressed: () {},
+                    ),
+                  )
+                ],
+              ),
+              const SizedBox(
+                height: 30,
+              ),
               CustomInputField(
                 title: "Enter your Email Address",
                 controller: email,
@@ -63,6 +92,13 @@ class _SignupState extends State<Signup> {
                 title: "Enter your password",
                 obscureText: true,
                 controller: password,
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              CustomInputField(
+                title: "Enter your Bio",
+                controller: username,
               ),
               const SizedBox(
                 height: 30,

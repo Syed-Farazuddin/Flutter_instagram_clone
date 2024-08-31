@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:instagram_clone/core/colors.dart';
 import 'package:instagram_clone/features/auth/presentation/pages/signup.dart';
 import 'package:instagram_clone/features/auth/presentation/widgets/custom_button.dart';
@@ -39,6 +40,13 @@ class _LoginScreenState extends State<LoginScreen> {
               Flexible(
                 child: Container(),
                 flex: 2,
+              ),
+              SvgPicture.asset(
+                "lib/assets/images/ic_instagram.svg",
+                color: primaryColor,
+              ),
+              const SizedBox(
+                height: 50,
               ),
               CustomInputField(
                 title: "User Name",

@@ -37,18 +37,18 @@ class MyApp extends StatelessWidget {
         theme: ThemeData.dark().copyWith(
           scaffoldBackgroundColor: mobileBackgroundColor,
         ),
-        home: Scaffold(
+        home: const Scaffold(
           backgroundColor: mobileBackgroundColor,
-          appBar: AppBar(
-            title: const Text(
-              "Insta Clone",
-              style: TextStyle(
-                color: Colors.white,
-              ),
-            ),
-            backgroundColor: mobileBackgroundColor,
-          ),
-          body: const ResponsiveScreenLayout(
+          // appBar: AppBar(
+          //   title: const Text(
+          //     "Insta Clone",
+          //     style: TextStyle(
+          //       color: Colors.white,
+          //     ),
+          //   ),
+          //   backgroundColor: mobileBackgroundColor,
+          // ),
+          body: ResponsiveScreenLayout(
             webScreenLayout: WebScreenLayout(),
             mobileScreenLayout: MobileScreenLayout(),
           ),
