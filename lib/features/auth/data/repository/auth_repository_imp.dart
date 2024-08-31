@@ -39,7 +39,7 @@ class AuthRepositoryImp implements AuthRepository {
       // Store user data in the database
       await _store.collection("Users").doc(cred.user!.uid).set({
         "username": username,
-        "photo": photo,
+        // "photo": photo,
         "followers": [],
         "uid": cred.user!.uid,
         "bio": bio,

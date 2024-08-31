@@ -39,15 +39,6 @@ class MyApp extends StatelessWidget {
         ),
         home: const Scaffold(
           backgroundColor: mobileBackgroundColor,
-          // appBar: AppBar(
-          //   title: const Text(
-          //     "Insta Clone",
-          //     style: TextStyle(
-          //       color: Colors.white,
-          //     ),
-          //   ),
-          //   backgroundColor: mobileBackgroundColor,
-          // ),
           body: ResponsiveScreenLayout(
             webScreenLayout: WebScreenLayout(),
             mobileScreenLayout: MobileScreenLayout(),
